@@ -6,15 +6,14 @@ from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 #when i try to briefcase run the app i get an error that says "no module named pandas" even though it's installed
 
-
 class QBStatsApp(toga.App):
     def startup(self):
         # Create the home screen
-        home_screen = toga.Box(style=Pack(direction=COLUMN, padding=10))
+        self.home_screen = toga.Box(style=Pack(direction=COLUMN, padding=10))
 
         # Create the header
         header_label = toga.Label('Predict football', style=Pack(font_size=24))
-        home_screen.add(header_label)
+        self.home_screen.add(header_label)
         # Create the description
         description_label = toga.Label(
             'Welcome to Predict Football. Predict Football is a revolutionary football app that predicts next season\'s '
@@ -23,15 +22,15 @@ class QBStatsApp(toga.App):
             'endeavors!\n\nOur projected fantasy points are calculated using ESPN\'s model.',
             style=Pack(font_size=12)
         )
-        home_screen.add(description_label)
+        self.home_screen.add(description_label)
 
         # Create the search button
         search_button = toga.Button('Search', on_press=self.open_search_page, style=Pack(padding=10))
-        home_screen.add(search_button)
+        self.home_screen.add(search_button)
 
         # Create the main window
         self.main_window = toga.MainWindow(title='Predict Football', size=(800, 600))
-        self.main_window.content = home_screen
+        self.main_window.content = self.home_screen
         self.main_window.show()
 
     def open_search_page(self, widget):
@@ -66,6 +65,15 @@ class QBStatsApp(toga.App):
 
         # Update the main window content to the search page
         self.main_window.content = search_page
+
+    def back_to_home(self, widget):
+        # Reset the search input and table data
+        self.search_input.value = ''
+        self.table.data = []
+
+        # Show the home screen
+        self.main_window.content = self.home_screen
+
 
     def back_to_home(self, widget):
         # Reset the search input and table data
