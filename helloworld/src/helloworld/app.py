@@ -4,6 +4,7 @@ from sklearn.linear_model import LinearRegression
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
+#when i try to briefcase run the app i get an error that says "no module named pandas" even though it's installed
 
 
 class QBStatsApp(toga.App):
