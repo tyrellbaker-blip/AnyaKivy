@@ -28,6 +28,8 @@ class QBStatsApp(toga.App):
         search_button = toga.Button('Search', on_press=self.open_search_page, style=Pack(padding=10))
         self.home_screen.add(search_button)
 
+        # Create the players button
+
         # Create the main window
         self.main_window = toga.MainWindow(title='Predict Football', size=(800, 600))
         self.main_window.content = self.home_screen
@@ -74,14 +76,6 @@ class QBStatsApp(toga.App):
         # Show the home screen
         self.main_window.content = self.home_screen
 
-
-    def back_to_home(self, widget):
-        # Reset the search input and table data
-        self.search_input.value = ''
-        self.table.data = []
-
-        # Show the home screen
-        self.startup()
 
     def search_quarterback(self, widget):
         # Get the search query
