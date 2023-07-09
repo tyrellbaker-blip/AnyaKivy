@@ -1,17 +1,17 @@
 # This project was generated with Unknown using template: https://github.com/beeware/briefcase-template@v0.3.14
 [tool.briefcase]
-project_name = "Hello World"
+project_name = "hello world"
 bundle = "com.example"
 version = "0.0.1"
-url = "https://example.com/helloworld"
+url = "https://predictfootball.streamlit.app/"
 license = "BSD license"
-author = "Jane Developer"
-author_email = "jane@example.com"
+author = "hello world"
+author_email = "gmail@gmail.com"
 
 [tool.briefcase.app.helloworld]
-formal_name = "Hello World"
-description = "My first application"
-long_description = """More details about the app should go here.
+formal_name = "hello world"
+description = ""
+long_description = """
 """
 icon = "src/helloworld/resources/helloworld"
 sources = [
@@ -22,6 +22,7 @@ test_sources = [
 ]
 
 requires = [
+    "pandas", "numpy", "scikit-learn"
 ]
 test_requires = [
     "pytest",
